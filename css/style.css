@@ -4,28 +4,28 @@ li {
 nav {
     display: flex;
     align-items: center;
-    flex-direction: row; /* horizontal por defecto */
+    flex-direction: row;
     gap: 30px;
 }
 .logo {
     height: 50px;
-    margin-right: 30px; /* Espacio razonable a la derecha */
+    margin-right: 30px;
     margin-bottom: 0;
     display: block;
 }
 nav ul {
-    list-style: none;           /* Quita las viñetas */
+    list-style: none;         
     padding: 0;
     margin: 0;
-    display: flex;              /* Hace el menú horizontal */
-    gap: 15px;                  /* Espacio entre los ítems */
+    display: flex;
+    gap: 15px;
 }
 nav a {
-    color: white;               /* Color del texto */
-    text-decoration: none;      /* Quita el subrayado */
-    padding: 4px 20px;         /* Espaciado tipo botón */
-    background: rgba(0,0,0,0.3);/* Fondo semitransparente */
-    border-radius: 5px;         /* Bordes redondeados */
+    color: white;               
+    text-decoration: none;     
+    padding: 4px 20px;        
+    background: rgba(0,0,0,0.3);
+    border-radius: 5px;        
     transition: background 0.3s;
 }
 nav a:hover{
@@ -43,13 +43,13 @@ body {
     min-height: 100vh;
 }
 .rectangulo {
-    background: rgba(0,0,0,0.3); /* Fondo oscuro semitransparente */
+    background: rgba(0,0,0,0.3); 
     color: white;
     padding: 30px 50px;
     border-radius: 15px;
     max-width: 600px;
-    margin: 100px auto;           /* Centra horizontalmente */
-    text-align: center;          /* Centra el texto */
+    margin: 100px auto;          
+    text-align: center;          
     box-shadow: 0 4px 16px rgba(0,0,0,0.3);
 }
 p {
@@ -63,17 +63,17 @@ p {
     border: 1px solid #ccc;}
 .calendario-contenedor {
     margin-top: 10px;
-    margin-left: 430px; /* Ajusta este valor para alinear debajo de "Contacto" */
+    margin-left: 430px; 
 }
 
 .sobreescrita,
 .excursiones {
-    width: 100vw;        /* Ocupa todo el ancho de la ventana */
+    width: 100vw;        
     max-width: 100vw;
     min-width: 100vw;
     height: auto;
     display: block;
-    margin: 30px 0 30px calc(50% - 50vw); /* Centra la imagen y elimina márgenes laterales */
+    margin: 30px 0 30px calc(50% - 50vw); 
 }
 .img-con-texto {
     position: relative;
@@ -91,14 +91,14 @@ p {
 
 .texto-sobre-img {
     position: absolute;
-    top: 50%;                /* Centra verticalmente */
-    left: 20%;               /* Centra horizontalmente */
+    top: 50%;               
+    left: 20%;              
     transform: translate(-50%, -50%);
     color: white;
     font-size: 2em;
     font-weight: bold;
     text-shadow: 2px 2px 8px #000;
-    pointer-events: none;    /* El texto no interfiere con clics en la imagen */
+    pointer-events: none;    
 }
 footer{
     background: rgba(0,0,0,0.19);
@@ -109,11 +109,11 @@ footer{
     bottom: 0;
     width: 100%;
 }
-/* --- NAV: horizontal en escritorio, vertical en móvil --- */
+
 nav {
     display: flex;
     align-items: center;
-    flex-direction: row; /* horizontal por defecto */
+    flex-direction: row; 
     gap: 30px;
 }
 
@@ -160,18 +160,23 @@ nav ul {
 
 .logo {
     height: 50px;
-    margin-right: 30px; /* Espacio razonable a la derecha */
+    margin-right: 30px; 
     margin-bottom: 0;
     display: block;
 }
-
-/* --- Calendario --- */
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 4px 20px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 5px;
+    transition: background 0.3s;
+}
 .calendario-contenedor {
     margin-top: 0;
     margin-left: 30px;
 }
 
-/* --- Imágenes ancho completo --- */
 .sobreescrita,
 .excursiones,
 .img-con-texto img {
@@ -183,7 +188,6 @@ nav ul {
     margin: 30px 0 30px calc(50% - 50vw);
 }
 
-/* --- Rectángulo centrado --- */
 .rectangulo {
     background: rgba(0,0,0,0.3);
     color: white;
@@ -194,5 +198,56 @@ nav ul {
     text-align: center;
     box-shadow: 0 4px 16px rgba(0,0,0,0.3);
 }
+.empresa-contenedor{
+    display: flex;
+    flex-direction: column;   
+    align-items: center;      
+    width: 100%;
+    margin-bottom: 30px;
+    
+}
+.barra-con-texto {
+    position: relative;
+    width: 100vw;
+    max-width: 100vw;
+}
+.empresa-barra {
+    width: 100vw;             
+    max-width: 200vw;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;   
+}
+.texto-sobre-barra {
+    position: absolute;
+    top: 50%;              
+    left: 50%;            
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px #000;
+    pointer-events: none;
+    white-space: nowrap;
+}
+.empresa-info {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 30px;
+    width: 100%;
+    margin-top: 30px;
+}
 
-/* --- Otros estilos igual que tienes --- */
+.empresa-2 {
+    width: 220px;
+    height: auto;
+    display: block;
+    margin-left: 0;    
+}
+.empresa-info p {
+    color: white;
+    font-size: 1.1em;
+    margin: 0;
+    max-width: 600px;
+}
