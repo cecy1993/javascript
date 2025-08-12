@@ -1,0 +1,54 @@
+<!-- Header Component - Navegación Responsive Reutilizable -->
+<header id="mainHeader" class="header">
+  <nav id="mainNav" class="navbar">
+    <!-- Botón hamburguesa para mobile -->
+    <button id="menuToggle" class="menu-toggle" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menú">
+      ☰
+    </button>
+    
+    <!-- Logo -->
+    <div class="navbar-brand">
+      <img src="Images/logo.png" alt="Logo" class="logo">
+    </div>
+    
+    <!-- Enlaces de navegación -->
+    <ul class="navbar-links">
+      <li><a href="index.html" data-page="inicio">Inicio</a></li>
+      <li><a href="Pages/tarifas.html" data-page="tarifas">Tarifas</a></li>
+      <li><a href="Pages/Empresa.html" data-page="empresa">Empresa</a></li>
+      <li><a href="Pages/excursiones.html" data-page="excursiones">Excursiones</a></li>
+      <li><a href="Pages/contacto.html" data-page="contacto">Contacto</a></li>
+    </ul>
+    
+    <!-- Calendario (opcional) -->
+    <div class="navbar-extra">
+      <div class="calendario-contenedor">
+        <input type="date" class="calendario" aria-label="Seleccionar fecha">
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Backdrop para mobile -->
+  <div id="navBackdrop" class="backdrop"></div>
+</header>
+
+<!-- 
+  INSTRUCCIONES DE USO:
+  
+  1. Incluir este header en cada página:
+     - Copiar este HTML al inicio del <body>
+     - O usar JavaScript para cargar dinámicamente
+  
+  2. Incluir los archivos CSS y JS:
+     <link rel="stylesheet" href="css/navbar-styles.css">
+     <script src="js/nav.js"></script>
+  
+  3. Inicializar en cada página:
+     <script>
+       document.addEventListener('DOMContentLoaded', function() {
+         if (typeof initNav === 'function') {
+           initNav();
+         }
+       });
+     </script>
+-->

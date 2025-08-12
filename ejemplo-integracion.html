@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ejemplo de integración del sistema de navegación responsive">
+    <title>Ejemplo - Navegación Responsive</title>
+    
+    <!-- Estilos del navbar -->
+    <link rel="stylesheet" href="css/navbar-styles.css">
+    
+    <!-- Estilos adicionales para el ejemplo -->
+    <style>
+        /* Estilos base para el ejemplo */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        /* Contenido principal */
+        .main-content {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 2rem 0;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .section h1 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        
+        .section h2 {
+            color: #34495e;
+            margin: 2rem 0 1rem 0;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .feature-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .code-example {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 1rem;
+            }
+            
+            .section {
+                padding: 2rem 1rem;
+            }
+            
+            .section h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER CON NAVEGACIÓN RESPONSIVE -->
+    <header id="mainHeader" class="header">
+        <nav id="mainNav" class="navbar">
+            <!-- Botón hamburguesa para mobile -->
+            <button id="menuToggle" class="menu-toggle" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menú">
+                ☰
+            </button>
+            
+            <!-- Logo -->
+            <div class="navbar-brand">
+                <img src="Images/logo.png" alt="Logo" class="logo">
+            </div>
+            
+            <!-- Enlaces de navegación -->
+            <ul class="navbar-links">
+                <li><a href="#inicio" data-page="inicio">Inicio</a></li>
+                <li><a href="#tarifas" data-page="tarifas">Tarifas</a></li>
+                <li><a href="#empresa" data-page="empresa">Empresa</a></li>
+                <li><a href="#excursiones" data-page="excursiones">Excursiones</a></li>
+                <li><a href="#contacto" data-page="contacto">Contacto</a></li>
+            </ul>
+            
+            <!-- Calendario (opcional) -->
+            <div class="navbar-extra">
+                <div class="calendario-contenedor">
+                    <input type="date" class="calendario" aria-label="Seleccionar fecha">
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Backdrop para mobile -->
+        <div id="navBackdrop" class="backdrop"></div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+        <!-- Sección Inicio -->
+        <section id="inicio" class="section">
+            <h1>🚀 Sistema de Navegación Responsive</h1>
+            <p>Este es un ejemplo completo de implementación del sistema de navegación responsive con todas las funcionalidades requeridas.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>📱 Mobile First</h3>
+                    <p>Diseño responsive que se adapta perfectamente a dispositivos móviles y desktop.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔄 Persistencia</h3>
+                    <p>El estado del menú se mantiene entre navegaciones y recargas de página.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>♿ Accesible</h3>
+                    <p>Soporte completo para navegación por teclado y lectores de pantalla.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>✨ Smooth Scroll</h3>
+                    <p>Navegación suave entre secciones con compensación automática del header.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Tarifas -->
+        <section id="tarifas" class="section">
+            <h2>💰 Tarifas</h2>
+            <p>Aquí se mostrarían las tarifas de los servicios. El enlace "Tarifas" en el menú se marca automáticamente como activo cuando navegas a esta sección.</p>
+            <p>Prueba hacer clic en diferentes enlaces del menú para ver cómo se actualiza el estado activo y cómo funciona el smooth scroll.</p>
+            
+            <div class="code-example">
+// Ejemplo de cómo se detecta el enlace activo
+function setActiveLink() {
+  const currentHash = window.location.hash;
+  elements.links.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentHash) {
+      link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
+    }
+  });
+}
+            </div>
+        </section>
+
+        <!-- Sección Empresa -->
+        <section id="empresa" class="section">
+            <h2>🏢 Empresa</h2>
+            <p>Información sobre la empresa. Nota cómo el header permanece fijo en la parte superior y no interfiere con el contenido.</p>
+            <p>En dispositivos móviles (< 1024px), el menú se comporta como un overlay completo. En desktop (≥ 1024px), permanece como una barra horizontal.</p>
+            
+            <h3>Características técnicas:</h3>
+            <ul style="margin-left: 2rem; margin-top: 1rem;">
+                <li>Position sticky para el header</li>
+                <li>Z-index optimizado para evitar conflictos</li>
+                <li>Transiciones CSS suaves</li>
+                <li>Focus trap en mobile</li>
+                <li>Backdrop para cerrar el menú</li>
+            </ul>
+        </section>
+
+        <!-- Sección Excursiones -->
+        <section id="excursiones" class="section">
+            <h2>🏔️ Excursiones</h2>
+            <p>Contenido sobre excursiones. El sistema de navegación incluye las siguientes funcionalidades de teclado:</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>⌨️ Teclas de acceso</h3>
+                    <p><strong>Escape:</strong> Cierra el menú en mobile<br>
+                    <strong>Tab:</strong> Navegación por elementos<br>
+                    <strong>Enter/Space:</strong> Activar enlaces</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎯 Focus Management</h3>
+                    <p>Focus trap automático en mobile cuando el menú está abierto. El foco se mantiene dentro del menú hasta que se cierra.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Contacto -->
+        <section id="contacto" class="section">
+            <h2>📞 Contacto</h2>
+            <p>Información de contacto. El sistema guarda automáticamente el estado del menú en localStorage para mantener la experiencia del usuario.</p>
+            
+            <h3>Instrucciones de integración:</h3>
+            <div class="code-example">
+&lt;!-- 1. Incluir los archivos CSS y JS --&gt;
+&lt;link rel="stylesheet" href="css/navbar-styles.css"&gt;
+&lt;script src="js/nav.js"&gt;&lt;/script&gt;
+
+&lt;!-- 2. Incluir el HTML del header --&gt;
+&lt;header id="mainHeader" class="header"&gt;
+  &lt;nav id="mainNav" class="navbar"&gt;
+    &lt;!-- Contenido del navbar --&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;!-- 3. El JavaScript se inicializa automáticamente --&gt;
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#inicio" class="btn">🔝 Volver al inicio</a>
+                <button onclick="NavAPI.toggle()" class="btn">🔄 Toggle menú</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- SCRIPT DE NAVEGACIÓN -->
+    <script src="js/nav.js"></script>
+    
+    <!-- Script adicional para demostración -->
+    <script>
+        // Ejemplo de cómo usar la API del navbar
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Navegación inicializada');
+            
+            // Ejemplo de uso de la API
+            window.addEventListener('resize', function() {
+                const state = NavAPI.getState();
+                console.log('Estado actual:', state);
+            });
+        });
+    </script>
+</body>
+</html>
