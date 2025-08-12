@@ -3,30 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <meta name="description" content="Contacta con Alta Pinta para reservar tus excursiones en Bariloche">
+    <meta name="keywords" content="contacto, reservas, Bariloche, excursiones, teléfono, email">
+    <meta name="author" content="Alta Pinta">
+    
+    <!-- CSS unificado -->
+    <link rel="stylesheet" href="../assets/css/base.css">
+    
+    <!-- JavaScript -->
+    <script src="../assets/js/nav.js" defer></script>
+    
+    <title>Alta Pinta - Contacto</title>
 </head>
 <body>
-   <header>
-    <nav>
-        <img src="../images/logo.png" alt="Logo" class="logo">
-        <ul>
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="tarifas.html">Tarifas</a></li>
-        <li><a href="Empresa.html">Empresa</a></li>
-        <li><a href="excursiones.html">Excursiones</a></li>
-        <li><a href="#">Contacto</a></li>
-        </ul>
-    </nav>
-    <div class="calendario-contenedor">
-            <input type="date" class="calendario">
-        </div>
-   </header>
-    <main>
-      <h1>Contacto</h1>  
+    <!-- Header común -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Contenido principal -->
+    <main id="main-content" class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
+                <h1>Contacto</h1>
+                <p>¿Listo para tu próxima aventura? Contactanos para reservar o consultar sobre nuestras excursiones.</p>
+            </div>
+        </section>
+        
+        <!-- Información de contacto -->
+        <section class="contact">
+            <div class="container">
+                <div class="contact__grid">
+                    <!-- Información de contacto -->
+                    <div class="contact__info">
+                        <div class="card">
+                            <h2>Información de Contacto</h2>
+                            
+                            <div class="contact__item">
+                                <h3>📞 Teléfono</h3>
+                                <p><a href="tel:+541234567890">+54 123 456 7890</a></p>
+                            </div>
+                            
+                            <div class="contact__item">
+                                <h3>📧 Email</h3>
+                                <p><a href="mailto:info@altapinta.com">info@altapinta.com</a></p>
+                            </div>
+                            
+                            <div class="contact__item">
+                                <h3>📍 Dirección</h3>
+                                <p>Buenos Aires, Argentina</p>
+                            </div>
+                            
+                            <div class="contact__item">
+                                <h3>🕒 Horarios de Atención</h3>
+                                <p>
+                                    <strong>Lunes a Viernes:</strong> 9:00 - 18:00<br>
+                                    <strong>Sábados:</strong> 9:00 - 14:00<br>
+                                    <strong>Domingos:</strong> Cerrado
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Formulario de contacto -->
+                    <div class="contact__form">
+                        <div class="card">
+                            <h2>Envíanos un Mensaje</h2>
+                            <form class="form">
+                                <div class="form__group">
+                                    <label for="name" class="form__label">Nombre completo</label>
+                                    <input type="text" id="name" name="name" class="form__input" required>
+                                </div>
+                                
+                                <div class="form__group">
+                                    <label for="email" class="form__label">Email</label>
+                                    <input type="email" id="email" name="email" class="form__input" required>
+                                </div>
+                                
+                                <div class="form__group">
+                                    <label for="phone" class="form__label">Teléfono</label>
+                                    <input type="tel" id="phone" name="phone" class="form__input">
+                                </div>
+                                
+                                <div class="form__group">
+                                    <label for="excursion" class="form__label">Excursión de interés</label>
+                                    <select id="excursion" name="excursion" class="form__select">
+                                        <option value="">Selecciona una excursión</option>
+                                        <option value="cabalgatas">Cabalgatas 1/2 día con asado</option>
+                                        <option value="rafting-manso">Rafting Río Manso</option>
+                                        <option value="rafting-villegas">Rafting Villegas</option>
+                                        <option value="canopy">Canopy</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form__group">
+                                    <label for="date" class="form__label">Fecha preferida</label>
+                                    <input type="date" id="date" name="date" class="form__input">
+                                </div>
+                                
+                                <div class="form__group">
+                                    <label for="message" class="form__label">Mensaje</label>
+                                    <textarea id="message" name="message" class="form__textarea" rows="5" placeholder="Cuéntanos sobre tu consulta o reserva..."></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn btn--primary">Enviar Mensaje</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+    
+    <!-- Footer común -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- JavaScript unificado -->
+    <script defer src="../assets/js/nav.js"></script>
+    
+    <!-- Cargar partials -->
+    <script>
+        // Load header and footer partials
+        async function loadPartials() {
+            try {
+                // Load header
+                const headerResponse = await fetch('../partials/header.html');
+                const headerHtml = await headerResponse.text();
+                document.getElementById('header-placeholder').innerHTML = headerHtml;
+                
+                // Load footer
+                const footerResponse = await fetch('../partials/footer.html');
+                const footerHtml = await footerResponse.text();
+                document.getElementById('footer-placeholder').innerHTML = footerHtml;
+                
+            } catch (error) {
+                console.error('Error loading partials:', error);
+            }
+        }
+        
+        // Load partials when DOM is ready
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadPartials();
+            // Inicializar navegación después de cargar partials
+            if (window.initNavigation) {
+                window.initNavigation();
+            }
+        });
+        
+        // Handle form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('.form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+                    form.reset();
+                });
+            }
+        });
+    </script>
 </body>
 </html>
-<footer>
-    
-</footer>

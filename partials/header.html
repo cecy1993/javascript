@@ -1,0 +1,28 @@
+<!-- ==========================================================================
+     HEADER COMÚN - Navegación responsive con toggle hamburguesa
+     ========================================================================== -->
+<header class="site-header">
+    <div class="container">
+        <a class="brand" href="/"><img src="/assets/img/logo.png" alt="Alta Pinta"></a>
+
+        <button id="menuToggle" class="nav-toggle" type="button"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menú">
+            ☰
+        </button>
+
+        <nav id="mainNav" class="nav" role="navigation">
+            <ul class="nav__list">
+                <li><a href="/index.html">Inicio</a></li>
+                <li><a href="/Pages/tarifas.html">Tarifas</a></li>
+                <li><a href="/Pages/Empresa.html">Empresa</a></li>
+                <li><a href="/Pages/excursiones.html">Excursiones</a></li>
+                <li><a href="/Pages/contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Skip link para accesibilidad -->
+<a href="#main-content" class="sr-only" tabindex="1">
+  Saltar al contenido principal
+</a>

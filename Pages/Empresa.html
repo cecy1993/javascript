@@ -1,45 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
-    <link rel="stylesheet" href="../css/style.css">
-    <title>Inicio</title>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empresa</title>
+    <meta name="description" content="Conoce Alta Pinta, empresa especializada en navegación lacustre y excursiones por el Parque Nacional Nahuel Huapi desde 1958">
+    <meta name="keywords" content="Alta Pinta, empresa, navegación lacustre, Bariloche, Nahuel Huapi, historia">
+    <meta name="author" content="Alta Pinta">
+    <title>Empresa - Alta Pinta</title>
+    <link rel="stylesheet" href="../assets/css/base.css">
+    
+    <!-- JavaScript -->
+    <script src="../assets/js/nav.js" defer></script>
 </head>
 <body>
-   <header>
-    <nav>
-        <ul>
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="tarifas.html">Tarifas</a></li>
-        <li><a href="#">Empresa</a></li>
-        <li><a href="excursiones.html">Excursiones</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-    <div class="calendario-contenedor">
-            <input type="date" class="calendario">
-        </div>
-    </nav>
-   </header>
-    <main>
- <div class="empresa-contenedor">
-    <div class="barra-con-texto">
-        <img src="../Images/Empresa 2.png" alt="Empresa" class="empresa-barra">
-        <span class="texto-sobre-barra">Quienes somos</span>
-    </div>
-  <div class="empresa-info">
-    <p>
-        Alta pinta es una empresa con sede en San Carlos de Bariloche que, desde 1958, se especializa en la navegación lacustre y las excursiones por el Parque Nacional Nahuel Huapi. Nuestro objetivo es que nuestros clientes disfruten de la belleza inigualable de nuestros paisajes, navegando en un entorno único de montañas y lagos de deshielo.<br><br>
-        Tenemos oficinas en el centro de San Carlos de Bariloche, en Puerto Pañuelo, Puerto Blest, y también en la Ciudad Autónoma de Buenos Aires.<br><br>
-        Nuestra empresa y personal cuentan con una extendida experiencia en la navegación de los Lagos Andino Patagónicos, y nos caracterizamos por la constante preocupación por brindar altos niveles de excelencia en los servicios que prestamos.<br><br>
-        En marzo del año 2016 certificamos las normas de calidad internacional ISO 9001 (calidad de servicios) e ISO 14001 (cuidado de medio ambiente).
-    </p>
-    <img src="../Images/Empresa 1.png" alt="Empresa" class="empresa-2">
-</div>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
+                <h1>Quiénes Somos</h1>
+                <p>Conocé la historia y pasión detrás de Alta Pinta, tu compañía de confianza para explorar Bariloche.</p>
+            </div>
+        </section>
+
+        <!-- Company Information -->
+        <section class="company">
+            <div class="container">
+                <div class="company__content">
+                    <div class="company__text">
+                        <p class="company__description">
+                            <strong>Alta Pinta</strong> es una empresa con sede en San Carlos de Bariloche que, desde <strong>1958</strong>, se especializa en la navegación lacustre y las excursiones por el Parque Nacional Nahuel Huapi. Nuestro objetivo es que nuestros clientes disfruten de la belleza inigualable de nuestros paisajes, navegando en un entorno único de montañas y lagos de deshielo.
+                        </p>
+                        
+                        <p class="company__description">
+                            Tenemos oficinas en el centro de San Carlos de Bariloche, en Puerto Pañuelo, Puerto Blest, y también en la Ciudad Autónoma de Buenos Aires.
+                        </p>
+                        
+                        <p class="company__description">
+                            Nuestra empresa y personal cuentan con una extendida experiencia en la navegación de los Lagos Andino Patagónicos, y nos caracterizamos por la constante preocupación por brindar altos niveles de excelencia en los servicios que prestamos.
+                        </p>
+                        
+                        <div class="company__certification">
+                            <h2>Certificaciones de Calidad</h2>
+                            <p>En marzo del año 2016 certificamos las normas de calidad internacional:</p>
+                            <ul>
+                                <li><strong>ISO 9001</strong> - Calidad de servicios</li>
+                                <li><strong>ISO 14001</strong> - Cuidado del medio ambiente</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="company__image">
+                        <img src="../assets/img/Empresa 1.png" alt="Instalaciones de Alta Pinta" class="company__photo">
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script defer src="../assets/js/nav.js"></script>
+    <script>
+        // Load header and footer partials
+        async function loadPartials() {
+            try {
+                // Load header
+                const headerResponse = await fetch('../partials/header.html');
+                const headerHtml = await headerResponse.text();
+                document.getElementById('header-placeholder').innerHTML = headerHtml;
+                
+                // Load footer
+                const footerResponse = await fetch('../partials/footer.html');
+                const footerHtml = await footerResponse.text();
+                document.getElementById('footer-placeholder').innerHTML = footerHtml;
+                
+            } catch (error) {
+                console.error('Error loading partials:', error);
+            }
+        }
+        
+        // Load partials when DOM is ready
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadPartials();
+            // Inicializar navegación después de cargar partials
+            if (window.initNavigation) {
+                window.initNavigation();
+            }
+        });
+    </script>
 </body>
 </html>
-<footer>
-    <p>&copy; 2023 Alta Pinta. Todos los derechos reservados.</p>
-</footer>

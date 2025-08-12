@@ -1,32 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-     <link rel="stylesheet" href="../css/style.css">
-    
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarifas</title>
+    <meta name="description" content="Tarifas y precios de excursiones en Bariloche - Alta Pinta">
+    <meta name="keywords" content="tarifas, precios, excursiones, Bariloche, cabalgatas, rafting, canopy">
+    <meta name="author" content="Alta Pinta">
+    
+    <!-- CSS unificado -->
+    <link rel="stylesheet" href="../assets/css/base.css">
+    
+    <!-- JavaScript -->
+    <script src="../assets/js/nav.js" defer></script>
+    
+    <title>Alta Pinta - Tarifas</title>
 </head>
 <body>
-   <header>
-    <nav>
-        <ul>
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="#">Tarifas</a></li>
-        <li><a href="Empresa.html">Empresa</a></li>
-        <li><a href="excursiones.html">Excursiones</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-    </nav>
-   </header>
-<main>
-    <div class="img-con-texto">
-        <img src="../Images/Screenshot_1.png" alt="Sobreescrita" class="sobreescrita">
-        <span class="texto-sobre-img">Tarifas</span>
-    </div>
-    <div class="tabla-tarifas-contenedor">
-        <div class="tabla-tarifas-contenedor">
-    <table class="tabla-tarifas">
+    <!-- Header común -->
+    <div id="header-placeholder"></div>
+    <!-- Contenido principal -->
+    <main id="main-content" class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
+                <h1>Tarifas y Precios</h1>
+                <p>Conocé nuestras tarifas actualizadas para todas las actividades y excursiones.</p>
+            </div>
+        </section>
+        
+        <!-- Tabla de tarifas -->
+        <section class="pricing">
+            <div class="container">
+                <div class="pricing__table-container">
+                    <table class="pricing__table">
         <thead>
             <tr>
                 <th>Actividad</th>
@@ -67,13 +74,59 @@
                 <td>Salidas 9:00 y 13:00 hs</td>
             </tr>
         </tbody>
-    </table>
-</div>
-    </div>
-    <p>Aquí puedes encontrar información sobre nuestras tarifas y servicios.</p>
-</main>
-<footer>
-    <p>&copy; 2023 Alta Pinta. Todos los derechos reservados.</p>
-</footer>
+                    </table>
+                </div>
+                
+                <!-- Información adicional -->
+                <div class="pricing__info">
+                    <div class="card">
+                        <h3>Información Importante</h3>
+                        <ul>
+                            <li>Los precios están sujetos a cambios sin previo aviso</li>
+                            <li>Se requiere reserva previa para todas las actividades</li>
+                            <li>Consulta por descuentos para grupos</li>
+                            <li>Incluye equipamiento necesario para cada actividad</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer común -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- JavaScript unificado -->
+    <script defer src="../assets/js/nav.js"></script>
+    
+    <!-- Cargar partials -->
+    <script>
+        // Load header and footer partials
+        async function loadPartials() {
+            try {
+                // Load header
+                const headerResponse = await fetch('../partials/header.html');
+                const headerHtml = await headerResponse.text();
+                document.getElementById('header-placeholder').innerHTML = headerHtml;
+                
+                // Load footer
+                const footerResponse = await fetch('../partials/footer.html');
+                const footerHtml = await footerResponse.text();
+                document.getElementById('footer-placeholder').innerHTML = footerHtml;
+                
+            } catch (error) {
+                console.error('Error loading partials:', error);
+            }
+        }
+        
+        // Load partials when DOM is ready
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadPartials();
+            // Inicializar navegación después de cargar partials
+            if (window.initNavigation) {
+                window.initNavigation();
+            }
+        });
+    </script>
 </body>
 </html>

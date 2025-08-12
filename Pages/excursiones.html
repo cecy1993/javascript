@@ -3,26 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excursiones</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <meta name="description" content="Excursiones y actividades en Bariloche - Puerto Blest, Isla Victoria y más">
+    <meta name="keywords" content="excursiones, Bariloche, Puerto Blest, Isla Victoria, navegación, turismo">
+    <meta name="author" content="Alta Pinta">
+    
+    <!-- CSS unificado -->
+    <link rel="stylesheet" href="../assets/css/base.css">
+    
+    <!-- JavaScript -->
+    <script src="../assets/js/nav.js" defer></script>
+    
+    <title>Alta Pinta - Excursiones</title>
 </head>
 <body>
-   <header>
-    <nav>
-        <ul>
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="tarifas.html">Tarifas</a></li>
-        <li><a href="Empresa.html">Empresa</a></li>
-        <li><a href="#">Excursiones</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-    </nav>
-   </header>
-    <main>
+    <!-- Header común -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Contenido principal -->
+    <main id="main-content" class="main-content">
 
-        <h1>Excursiones</h1>
-        <div class="tabla-tarifas-contenedor">
-    <table class="tabla-tarifas tabla-excursiones">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
+                <h1>Nuestras Excursiones</h1>
+                <p>Descubrí los paisajes más hermosos de Bariloche con nuestras excursiones guiadas. Experiencias únicas en la naturaleza.</p>
+            </div>
+        </section>
+        
+        <!-- Tabla de excursiones -->
+        <section class="excursions">
+            <div class="container">
+                <div class="excursions__table-container">
+                    <table class="excursions__table">
         <thead>
             <tr>
                 <th>Excursión</th>
@@ -54,12 +67,82 @@
                 <td><button class="btn-reservar">Reservar</button></td>
             </tr>
         </tbody>
-    </table>
-</div>
-        <p class="nota">Nota: Los precios están sujetos a cambios y pueden variar según la temporada. Se recomienda reservar con anticipación.</p>
+                    </table>
+                </div>
+                
+                <!-- Información adicional -->
+                <div class="excursions__info">
+                    <div class="card">
+                        <h3>Información Importante</h3>
+                        <ul>
+                            <li>Los precios están sujetos a cambios y pueden variar según la temporada</li>
+                            <li>Se recomienda reservar con anticipación</li>
+                            <li>Todas las excursiones incluyen guía especializado</li>
+                            <li>Consulta por condiciones climáticas antes de tu viaje</li>
+                            <li>Descuentos especiales para grupos familiares</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>¿Qué Incluye?</h3>
+                        <ul>
+                            <li>Transporte en embarcaciones modernas y seguras</li>
+                            <li>Guía bilingüe especializado</li>
+                            <li>Audioguías en inglés y portugués</li>
+                            <li>Seguro de viaje</li>
+                            <li>Refrigerio a bordo (según excursión)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+    
+    <!-- Footer común -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- JavaScript unificado -->
+    <script defer src="../assets/js/nav.js"></script>
+    
+    <!-- Cargar partials -->
+    <script>
+        // Load header and footer partials
+        async function loadPartials() {
+            try {
+                // Load header
+                const headerResponse = await fetch('../partials/header.html');
+                const headerHtml = await headerResponse.text();
+                document.getElementById('header-placeholder').innerHTML = headerHtml;
+                
+                // Load footer
+                const footerResponse = await fetch('../partials/footer.html');
+                const footerHtml = await footerResponse.text();
+                document.getElementById('footer-placeholder').innerHTML = footerHtml;
+                
+            } catch (error) {
+                console.error('Error loading partials:', error);
+            }
+        }
+        
+        // Load partials when DOM is ready
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadPartials();
+            // Inicializar navegación después de cargar partials
+            if (window.initNavigation) {
+                window.initNavigation();
+            }
+        });
+        
+        // Handle reservation buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const reserveButtons = document.querySelectorAll('.btn-reservar');
+            reserveButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    alert('¡Gracias por tu interés! Te redirigiremos a la página de contacto para completar tu reserva.');
+                    window.location.href = 'contacto.html';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
-<footer>
-    <p>&copy; 2023 Alta Pinta. Todos los derechos reservados.</p>
-</footer>

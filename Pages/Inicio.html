@@ -3,35 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <meta name="description" content="Descubre las mejores excursiones lacustres en Bariloche. Aventura, naturaleza y momentos inolvidables en el Parque Nacional Nahuel Huapi">
+    <meta name="keywords" content="Bariloche, excursiones, verano, navegación lacustre, turismo, aventura">
+    <meta name="author" content="Alta Pinta">
+    <title>Inicio - Alta Pinta</title>
+    <link rel="stylesheet" href="../assets/css/base.css">
+    
+    <!-- JavaScript -->
+    <script src="../assets/js/nav.js" defer></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="Tarifas.html">Tarifas</a></li>
-                <li><a href="Empresa.html">Empresa</a></li>
-                <li><a href="Excursiones.html">Excursiones</a></li>
-                <li><a href="Contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h1>Inicio</h1>
-        <p>
-            Qué Hacer en Verano en Bariloche<br>
-            ¡El verano en Bariloche es una experiencia única que no te podes perder! Si buscas aventura, naturaleza y momentos inolvidables, nuestras excursiones lacustres son la opción perfecta para vos.
-        </p>
-        <div class="galeria">
-            <img src="../Images/paisaje1.jpg" alt="Paisaje de Bariloche 1">
-            <img src="../Images/paisaje2.jpg" alt="Paisaje de Bariloche 2">
-            <img src="../Images/Paisaje3.jpg" alt="Paisaje de Bariloche 3">
-        </div>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
+                <h1>Descubrí Bariloche</h1>
+                <p>El verano en Bariloche es una experiencia única. Si buscás aventura, naturaleza y momentos inolvidables, nuestras excursiones lacustres son la opción perfecta para vos.</p>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery">
+            <div class="container">
+                <h2 class="gallery__title">Descubrí la Belleza de Bariloche</h2>
+                <div class="gallery__grid">
+                    <div class="gallery__item">
+                        <img src="../assets/img/paisaje1.jpg" alt="Paisaje de Bariloche con lago y montañas" class="gallery__image">
+                    </div>
+                    <div class="gallery__item">
+                        <img src="../assets/img/paisaje2.jpg" alt="Vista panorámica de los lagos patagónicos" class="gallery__image">
+                    </div>
+                    <div class="gallery__item">
+                        <img src="../assets/img/Paisaje3.jpg" alt="Navegación en los lagos andinos" class="gallery__image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta__content">
+                    <h2 class="cta__title">¿Listo para la Aventura?</h2>
+                    <p class="cta__text">Conocé nuestras excursiones y tarifas especiales para esta temporada</p>
+                    <div class="cta__buttons">
+                        <a href="excursiones.html" class="btn btn--primary">Ver Excursiones</a>
+                        <a href="tarifas.html" class="btn btn--secondary">Ver Tarifas</a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer>
-        <p>&copy; 2023 Alta Pinta. Todos los derechos reservados.</p>
-    </footer>
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script defer src="../assets/js/nav.js"></script>
+    <script>
+        // Load header and footer partials
+        async function loadPartials() {
+            try {
+                // Load header
+                const headerResponse = await fetch('../partials/header.html');
+                const headerHtml = await headerResponse.text();
+                document.getElementById('header-placeholder').innerHTML = headerHtml;
+                
+                // Load footer
+                const footerResponse = await fetch('../partials/footer.html');
+                const footerHtml = await footerResponse.text();
+                document.getElementById('footer-placeholder').innerHTML = footerHtml;
+                
+            } catch (error) {
+                console.error('Error loading partials:', error);
+            }
+        }
+        
+        // Load partials when DOM is ready
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadPartials();
+            // Inicializar navegación después de cargar partials
+            if (window.initNavigation) {
+                window.initNavigation();
+            }
+        });
+    </script>
 </body>
 </html>
