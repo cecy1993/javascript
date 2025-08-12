@@ -14,7 +14,6 @@ const NavState = {
 
 // Elementos del DOM
 let elements = {};
-console.log('')
 
 /**
  * INICIALIZACIÓN PRINCIPAL
